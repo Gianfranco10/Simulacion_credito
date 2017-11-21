@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modelo.Conexion;
+import modelo.ObjetoNoEncontradoException;
 import modelo.Perfil;
 import modelo.SinConexionException;
 import modelo.Usuario;

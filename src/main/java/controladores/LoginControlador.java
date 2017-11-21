@@ -3,11 +3,17 @@
  */
 package controladores;
 
+import java.io.Serializable;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 
+import org.apache.log4j.Logger;
+
+
 import dao.UsuarioDAO;
+import modelo.ObjetoNoEncontradoException;
 import modelo.Usuario;
 
 
@@ -17,12 +23,19 @@ import modelo.Usuario;
  */
 @ManagedBean
 @SessionScoped
-public class LoginControlador {
+public class LoginControlador implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1474955314275171735L;
+	private static final Logger LOGGER = Logger.getLogger(LoginControlador.class);
 	private String email;
 	private String password;
 	private boolean error;
 	private Usuario usuarioLogeado;
 	private String mensaje;
+	
 	
 	public LoginControlador(){
 		this.email = "";
