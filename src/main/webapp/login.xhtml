@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
-<meta charset="ISO-8859-1"></meta>
+<meta charset="UTF-8"></meta>
 <meta name="viewport" content="width=device-width, initialscale=1"></meta>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"></link>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous"></link>
 <title>Iniciar Sesion here</title>
 </head>
 <body>
-Hola! 
-chao
-
+	<ui:include src="/WEB-INF/BarraSuperior.xhtml"></ui:include>
+	<DIV class="container" style="margin-top: 100px;">
+	<DIV class="row">
+	<DIV class="col-md-4 col-d-offset-4">
+	<DIV class="panel panel-default">
+	<H4>Iniciar Sesión</H4>
+	<DIV class="panel-body">
+	<FORM action="">
+	<DIV class="form-group">
+	<INPUT type="email" name="" class="form-control" placeholder="Email"/>
+	</DIV>
+	<DIV class="form-group">
+	<INPUT type="password" name="" class="form-control" placeholder="Contraseña"/>
+	</DIV>
+	<DIV class="form-group">
+	<INPUT type="submit" name="" class="btn btn-success btn-lg btn-block" value="Iniciar sesión"/>
+	</DIV>
+		</FORM>
+		</DIV>
+		</DIV>
+		</DIV>
+		</DIV>
+	</DIV>
 </body>
 </html>
