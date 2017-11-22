@@ -24,8 +24,8 @@ import java.sql.DriverManager;
 		private Conexion() {
 			this.host = "localhost"; //127.0.0.1
 			this.puerto = 3306;
-			this.baseDeDatos = "curso";
-			this.nombre = "jmaldonado";
+			this.baseDeDatos = "simulacion_credito";
+			this.nombre = "root";
 			this.password = "java123";
 		}
 
