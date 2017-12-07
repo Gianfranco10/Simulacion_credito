@@ -37,14 +37,14 @@ public class UsuarioDAO {
 	public static Usuario validar(Usuario usuario) throws SQLException, SinConexionException {
 		PreparedStatement st = Conexion.getInstancia().prepareStatement(
 				"select * from usuario where "+
-				"userName =?  AND "+  
-				"password = ?;");
-		st.setString(1,  usuario.getNombreUsuario() );
+				"email =?  AND "+  
+				"hash_password = ?;");
+		st.setString(1,  usuario.getEmail() );
 		st.setString(2,  usuario.getPassword() );
 		ResultSet rs = st.executeQuery();
 		if( rs.next() ){
-			Perfil perfil =PerfilDAO.obtenerPerfil( rs.getInt("id_perfil") ) ;
-			usuario.setPerfil(perfil);
+//			Perfil perfil =PerfilDAO.obtenerPerfil( rs.getInt("perfil_nombre") ) ;
+			usuario.setPerfil( new Perfil( rs.getString("perfil_nombre") ));
 			usuario.setUltimoIngreso( rs.getDate("ultimoIngreso") );
 			usuario.setIntentosFallidos(  rs.getInt("intentosFallidos" ) );
 			return usuario;
@@ -65,9 +65,13 @@ public class UsuarioDAO {
 		ResultSet rs = st.executeQuery();
 		while( rs.next() ){
 			Usuario usuario = new Usuario();
-			Perfil perfil =PerfilDAO.obtenerPerfil( rs.getInt("id_perfil") ) ;
+			Perfil perfil =PerfilDAO.obtenerPerfil( rs.getInt("perfil_nombre") ) ;
 			usuario.setPerfil(perfil);
-			usuario.setNombreUsuario( rs.getString("userName") );
+			usuario.setNombreUsuario( rs.getString("nombre") );
+			usuario.setEdad(rs.getInt("edad"));
+			usuario.setRut(rs.getInt("rut"));
+			usuario.setEmail(rs.getString("email"));
+			usuario.setPassword(rs.getString("hash_password"));
 			usuario.setUltimoIngreso( rs.getTimestamp("ultimoIngreso") );
 			usuario.setIntentosFallidos(  rs.getInt("intentosFallidos" ) );
 			usuarios.add( usuario );
@@ -83,7 +87,7 @@ public class UsuarioDAO {
 	 */
 	public static void eliminarUsuario(Usuario usuario) throws SQLException, SinConexionException {
 		PreparedStatement st = Conexion.getInstancia().prepareStatement(
-				"delete from usuario where userName = ?;");
+				"delete from usuario where nombre = ?;");
 		st.setString(1, usuario.getNombreUsuario() );
 		st.executeUpdate();
 	}
@@ -96,12 +100,24 @@ public class UsuarioDAO {
 	 */
 	public static void actualizarUltimoIngreso( Usuario usuario ) throws SQLException, SinConexionException{
 		PreparedStatement st = Conexion.getInstancia().prepareStatement(
-				"update usuario set ultimoIngreso=? where userName = ?;");
+				"update usuario set ultimoIngreso=? where nombre = ?;");
 		st.setTimestamp(1, new Timestamp( new java.util.Date().getTime()  ));
 //		st.setDate(1, new Date( new java.util.Date().getTime() ));
 		st.setString( 2, usuario.getNombreUsuario());
 		st.executeUpdate();
 	}
+	public static void agregarUsuario(Usuario usuario) throws SQLException, SinConexionException {
+		PreparedStatement st = Conexion.getInstancia().prepareStatement(
+				"insert into usuario (rut, hash_password, nombre, email, edad, perfil_nombre) values(?,?,?,?,?,?);");
+		st.setInt(1,usuario.getRut()) ;
+		st.setString(2,usuario.getPassword() );
+		st.setString(3,usuario.getNombreUsuario() );
+		st.setString(4,usuario.getEmail() );
+		st.setInt(5,usuario.getEdad() );
+		st.setString(6, usuario.getPerfil().getNombre());
+		st.executeUpdate();
+	}
 }
+
 
 

@@ -18,8 +18,8 @@ public class Perfil {
 		
 	}
 	
-	public Perfil(int id) {
-		this.id = id;
+	public Perfil(String nombre) {
+		this.nombre = nombre;
 	}
 
 

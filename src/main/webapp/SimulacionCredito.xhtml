@@ -10,6 +10,17 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous"></link>
+	<style type="text/css">
+	body{
+	  background-image:url(Img/fondo.jpg);
+	  background-position:center center;
+	  background-size: cover;
+	  background-attachment: fixed;
+	  
+	  	
+	}
+	
+	</style>
 </head>
 <body>
 	<ui:include src="/WEB-INF/BarraSuperior.xhtml"></ui:include>
@@ -25,34 +36,33 @@
 			<div class="col-md-5">
 				<h:form styleClass="form-horizontal">
 					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">Rut</label>
+						<label for="inputEmail3" class="col-sm-2 control-label" >Rut (11.111.111.1)</label>
 						<div class="col-sm-10">
-							<h:inputText styleClass="form-control" type="#{simulacionControlador.rut}"></h:inputText>
+							<h:inputText styleClass="form-control" value="#{simulacionControlador.rut}"></h:inputText>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-2 control-label">Monto</label>
+						<label for="inputPassword3" class="col-sm-2 control-label "  style="color: white" >Monto</label>
 						<div class="col-sm-10">
-							<h:inputText styleClass="form-control" type="#{simulacionControlador.monto}"></h:inputText>
+							<h:inputText styleClass="form-control" value="#{simulacionControlador.monto}"></h:inputText>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">Plazo</label>
+						<label for="inputEmail3" class="col-sm-2 control-label" style="color: white">Plazo</label>
 						<div class="col-sm-10">
-							<h:inputText styleClass="form-control" type="#{simulacionControlador.plazo}"></h:inputText>
+							<h:inputText styleClass="form-control" value="#{simulacionControlador.plazo}"></h:inputText>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
+						<label for="inputEmail3" class="col-sm-2 control-label" style="color: white">Email</label>
 						<div class="col-sm-10">
-							<h:inputText styleClass="form-control" type="#{simulacionControlador.email}"></h:inputText>
+							<h:inputText styleClass="form-control" value="#{simulacionControlador.email}"></h:inputText>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">Renta
-							Líquida</label>
+						<label for="inputEmail3" class="col-sm-2 control-label"style="color: white">Renta Líquida</label>
 						<div class="col-sm-10">
-							<h:inputText styleClass="form-control" type="#{simulacionControlador.rentaLiquida}"></h:inputText>
+							<h:inputText styleClass="form-control" value="#{simulacionControlador.rentaLiquida}"></h:inputText>
 						</div>
 					</div>
 					<div class="form-group">

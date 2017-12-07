@@ -12,6 +12,9 @@ import java.util.Date;
 public class Usuario {
 		private String nombreUsuario;
 		private String password;
+		private int rut;
+		private String email;
+		private int edad;
 		private int intentosFallidos;
 		private Date ultimoIngreso;
 		private Perfil perfil;
@@ -26,12 +29,22 @@ public class Usuario {
 		 * @param password
 		 * @param intentosFallidos
 		 */
-		public Usuario(String nombreUsuario, String password) {
+		public Usuario(String nombreUsuario, String password, int rut, String email, int edad) {
 			super();
 			this.nombreUsuario = nombreUsuario;
 			this.password = password;
+			this.rut = rut;
+			this.email = email;
+			this.edad = edad;
 		}
 
+
+
+		public Usuario(String email, String password) {
+			this.password = password;
+			this.email = email;
+			// TODO Auto-generated constructor stub
+		}
 
 
 		/**
@@ -110,6 +123,36 @@ public class Usuario {
 		 */
 		public void setPerfil(Perfil perfil) {
 			this.perfil = perfil;
+		}
+
+
+		public int getRut() {
+			return rut;
+		}
+
+
+		public void setRut(int rut) {
+			this.rut = rut;
+		}
+
+
+		public String getEmail() {
+			return email;
+		}
+
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+
+		public int getEdad() {
+			return edad;
+		}
+
+
+		public void setEdad(int edad) {
+			this.edad = edad;
 		}
 		
 		

@@ -15,6 +15,7 @@ import org.apache.log4j.Logger;
 import dao.UsuarioDAO;
 import modelo.ObjetoNoEncontradoException;
 import modelo.Usuario;
+import servicios.ServicioEncriptar;
 
 
 /**
@@ -82,16 +83,23 @@ public class LoginControlador implements Serializable {
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+	public static Logger getLogger() {
+		return LOGGER;
+	}
 	public String iniciarSesion(){
 		try {
-			Usuario usuario = UsuarioDAO.validar(new Usuario(this.email, this.password));
+			Usuario usuario = UsuarioDAO.validar(new Usuario(this.email, ServicioEncriptar.encriptar( this.password )));
 			usuarioLogeado = usuario;
 			FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
 			LOGGER.info("El usuario " + this.email + " ha iniciado sesion");
 			UsuarioDAO.actualizarUltimoIngreso(usuarioLogeado);
 			this.mensaje = "";
 			this.error = false;
-			return "principal?faces-redirect=true";
+			return "perfilVista?faces-redirect=true";
 		} catch (ObjetoNoEncontradoException e) {
 			LOGGER.warn( "Error al iniciar sesion, datos no coinciden , " + this.email );
 			LOGGER.debug( "Usuario " + this.email + " password " + this.password );
