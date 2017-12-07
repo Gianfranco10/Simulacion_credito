@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta charset="UTF-8" />
+<title>Resultado de su Cotización</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous"></link>
+<style type="text/css">
+body {
+	background-image: url(Img/fondo.jpg);
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+</style>
+</head>
+<body>
+	<ui:include src="/WEB-INF/BarraSuperior.xhtml"></ui:include>
+	<DIV class="row">
+		<DIV class="col-md-12 col-md-offset-1">
+			<H2 class="text-left" style="color: white;">Resultado</H2>
+		</DIV>
+	</DIV>
+	<DIV class="row">
+		<DIV class="table-responsive col-md-6 col-md-offset-1">
+			<div style="background: rgba(255, 255, 255, 0.5); padding: 10px">
+				<h:dataTable styleClass="table table-striped" style="font-size: 15px;">
+					<h:column>
+						<f:facet  name="header">Rut</f:facet>
+						#{alumno.rut}
+					</h:column>
+					<h:column>
+						<f:facet  name="header">Nombre</f:facet>
+						#{alumno.nombre}
+					</h:column>
+							<h:column>
+						<f:facet  name="header">Fecha</f:facet>
+						#{alumno.fecha}
+					</h:column>
+						<h:column>
+						<f:facet  name="header">Banco</f:facet>
+						#{alumno.banco}
+					</h:column>
+					<h:column>
+						<f:facet  name="header">Monto Solicitado</f:facet>
+						#{alumno.montoSolicitado}
+					</h:column>
+					<h:column>
+						<f:facet  name="header">Cuotas</f:facet>
+						#{alumno.cuotas}
+					</h:column>
+						<h:column>
+						<f:facet  name="header">Tasa</f:facet>
+						#{alumno.tasa}
+					</h:column>
+					<h:column>
+						<f:facet  name="header">Costo total del credito</f:facet>
+						#{alumno.costoTotalCredito}
+					</h:column>
+				</h:dataTable>
+				<DIV>
+					<h:commandButton action="#{ResultadoCotizacionControlador}" styleClass="btn btn-info btn-lg btn-block" value="Volver"
+						outcome="perfilVista"></h:commandButton>
+				</DIV>
+			</div>
+		</DIV>
+		
+		<DIV class="col-md-3 ">
+			<img src="Img/cotizacion.png" alt="Responsive image" style="width: 290px; height: 300px; padding-top: 40px;"></img>
+		</DIV>
+
+	</DIV>
+
+</body>
+</html>

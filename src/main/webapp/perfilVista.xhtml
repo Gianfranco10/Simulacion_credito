@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<head>
+<meta charset="UTF-8"></meta>
+<meta name="viewport" content="width=device-width, initialscale=1"></meta>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous"></link>
+<title>Bienvenido a Tu perfil</title>
+<style type="text/css">
+body {
+	background-image: url(Img/fondo.jpg);
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+</style>
+</head>
+<body>
+	<ui:include src="/WEB-INF/BarraSuperior.xhtml"></ui:include>
+	<div class="row">
+		<DIV class="">
+			<h1 class="text-center" style="color: white;">¡Bienvenido a tu
+				perfil!</h1>
+			<h2 class="text-center" style="color: white;">¿Qué quieres
+				hacer?</h2>
+			<br />
+			<DIV class="row">
+				<DIV class="col-md-5">
+					<DIV class="text-right">
+						<img src="Img/user.png" class=""
+							alt="Responsive image" style="width: 220px; height: 260px;"></img>
+					</DIV>
+				</DIV>
+				<DIV class="col-md-7">
+					<div>
+						<h:link
+							style="width: 335px; height: 50px; font-size: 2em; background: rgba(179, 102, 255, 0.90)"
+							class="btn btn-primary btn-lg" value="Modifica Tus Datos"
+							outcome="login"></h:link>
+					</div>
+					<br/>
+					<DIV >
+						<h:link style="width: 335px; height: 50px; font-size: 2em; background: rgba(91, 192, 222, 0.90)"
+							class="btn btn-info btn-lg" value="Simular Un Crédito"
+							outcome="simulacion"></h:link>
+					</DIV>
+					<BR />
+					<DIV >
+						<h:link
+							style="width: 335px; height: 50px; font-size: 2em; background: rgba(92, 184, 92, 0.90)"
+							class="btn btn-success btn-lg" value="Ver Tus Simulaciones"
+							outcome="VistaCotizacion"></h:link>
+					</DIV>
+					<BR />
+					<DIV >
+						<h:link style="width: 335px; height: 50px; font-size: 2em; background: rgba(217, 83, 79, 0.90)"
+							class="btn btn-danger btn-lg" value="Cerrar Sesión"
+							outcome="login"></h:link>
+					</DIV>
+				</DIV>
+			</DIV>
+
+			
+
+
+		</DIV>
+
+
+		<BR />
+
+	</div>
+
+
+</body>
+</html>
